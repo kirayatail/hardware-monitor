@@ -1,14 +1,15 @@
 {
-  "name": "monitor",
-  "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
+  "name": "hardware-monitor",
+  "version": "0.1.0",
+  "description": "A Hardware monitor fetching data from OpenHardwareMonitor's API, sending it over serial port to an arduino for hardware visualisation.",
+  "main": "monitor/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install": "node install.js"
+    "install": "node install.js",
+    "start": "node monitor/main.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Max Witt",
+  "license": "MIT",
   "dependencies": {
     "lodash": "^4.17.11",
     "serialport": "^7.0.2"
