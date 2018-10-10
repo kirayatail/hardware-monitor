@@ -59,9 +59,9 @@ void loop() {
   if (Serial.available() > 0) {
     byte input[3];
     Serial.readBytes(input, 3);
-    tempTarget = input[0];
-    cpuTarget = input[1];
-    gpuTarget = input[2];
+    cpuTarget = input[0];
+    gpuTarget = input[1];
+    tempTarget = input[2];
     setMeters();
     delay(100);
     Serial.print("done\r\n");
