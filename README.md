@@ -44,3 +44,5 @@ Before running the NodeJS program, make sure the Arduino is connected via USB, a
 ## Future development
 
 A new valueMap will be designed for a non-linear curve (designed for the temperature gauge). 
+
+Some solution for autostarting and running this in the background would also be nice, though I expect the code to be platform specific and less suitable for an open and agnostic project.
