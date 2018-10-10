@@ -18,7 +18,7 @@
  * @return {Number} x <= mapped value <= y
  */
 const linear = (a,b,x,y,v) => {
-  return Math.min(y, Math.max(x, (((v-a) * (y-x)) / (b-a)) + x))
+  return Math.round(Math.min(y, Math.max(x, (((v-a) * (y-x)) / (b-a)) + x)))
 }
 
 module.exports = {
