@@ -12,9 +12,7 @@ SerialPort.list().then(
       port = new SerialPort(portNames[0],(err) => console.error(err));
       parser = port.pipe(new Readline({ delimiter: '\r\n'}));
       parser.on('data', (data) => {
-        console.log('Received:', data);
         OHM.getValues().then(data => {
-          console.log(`Sending ${data}`);
           port.write(data);
         },
         console.error);
