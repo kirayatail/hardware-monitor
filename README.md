@@ -1,5 +1,5 @@
 # hardware-monitor
-A small application which ties Open Hardware Monitor to Arduino in order to visualize monitor data using physical electronics. 
+A small application which ties Open Hardware Monitor to Arduino in order to visualize monitor data using physical electronics.
 
 ## Requirements
 
@@ -23,7 +23,7 @@ Finally, it needs a microcontroller that can receive data over a serial port (US
 
 Start by running Open Hardware Monitor, open either its own GUI or the web page associated with its server. You will be finding and registering paths to different sensor values in the settings file for hardware-monitor
 
-Open the file `monitor/settings.js` in your favorite text editor. It is designed as a JS object which is exposed as a Node module. The exposed object should contain two properties, the `ohmUrl` which points at the Open Hardware Monitor web server (make sure the URL is correct for your system), and a `values` property, which is an array of the values you wish to track. 
+Open the file `monitor/settings.js` in your favorite text editor. It is designed as a JS object which is exposed as a Node module. The exposed object should contain two properties, the `ohmUrl` which points at the Open Hardware Monitor web server (make sure the URL is correct for your system), and a `values` property, which is an array of the values you wish to track.
 
 Each entry in the `values` property should contain a `path` and a `map`. The `path` is an array of strings which should represent the path to a certain value in the Open Hardware Monitor tree structure. The example `['Computername', 'CPUname', 'Load', 'CPU Total']` is valid for a computer with the system name `Computername`, and a CPU model named `CPUname`. Change these values to match the parameters of your system. Sometimes you may have several devices or sensors sharing a name (for example two identical GPUs), and in those cases both paths will be followed, and an average of the values will be returned.
 
@@ -43,6 +43,10 @@ Before running the NodeJS program, make sure the Arduino is connected via USB, a
 
 ## Future development
 
-A new valueMap will be designed for a non-linear curve (designed for the temperature gauge). 
+A new valueMap will be designed for a non-linear curve (designed for the temperature gauge).
 
 Some solution for autostarting and running this in the background would also be nice, though I expect the code to be platform specific and less suitable for an open and agnostic project.
+
+## Deeper documentation
+
+You'll find details about the overall algorithm in this program in `DOCS.md`.

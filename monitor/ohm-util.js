@@ -2,6 +2,9 @@ const http = require('http');
 const _ = require('lodash');
 
 const ohmUtil = (settings) => {
+
+  // Wrapper for NodeJS standard http.get, using the Promise mechanism to
+  // perform asynchronous execution further down the line
   const fetch = () => {
     return new Promise((resolve, reject) => {
       http.get(settings.ohmUrl, (res) => {
@@ -31,14 +34,20 @@ const ohmUtil = (settings) => {
     });
   };
 
+  // Take an array of objects, 'unpack' objects in the Children list,
+  // return those objects as an array.
   const find = (name, arr) => {
     return _.flatten(arr.map(obj => obj.Children.filter(c => c.Text === name)));
   }
-  
+
+  // Values are formatted as text strings with unit symbols and ',' as decimal delimiter
+  // This function formats and converts to the Number type
   const toNumber = (str) => {
     return parseFloat(str.replace(/,/g, '.').replace(/[^\d\.]/g, ''));
   }
 
+  // Returns a chained promise from the fetch() function, where the data is transformed
+  // according to the documentation in DOCS.md
   const getValues = () => {
     return new Promise((resolve, reject) => {
       fetch().then(
@@ -55,6 +64,7 @@ const ohmUtil = (settings) => {
     });
   }
 
+  // Expose only the getValues() function.
   return {
     getValues: getValues
   }
