@@ -7,9 +7,9 @@ let parser;
 
 SerialPort.list().then(
   ports => {
-    const portNames = ports.filter(p => p.manufacturer.indexOf('Arduino') > -1).map(p => p.comName)
+    const portNames = ports.filter(p => (p.manufacturer || '').includes('Arduino')).map(p => p.comName)
     if (portNames.length > 0) {
-      port = new SerialPort(portNames[0],(err) => console.error(err));
+      port = new SerialPort(portNames[0].path,(err) => console.error(err));
       parser = port.pipe(new Readline({ delimiter: '\r\n'}));
       parser.on('data', (data) => {
         OHM.getValues().then(data => {

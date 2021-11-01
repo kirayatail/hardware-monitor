@@ -1,6 +1,6 @@
 {
   "name": "hardware-monitor",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A Hardware monitor fetching data from OpenHardwareMonitor's API, sending it over serial port to an arduino for hardware visualisation.",
   "main": "monitor/main.js",
   "scripts": {
@@ -11,7 +11,7 @@
   "author": "Max Witt",
   "license": "MIT",
   "dependencies": {
-    "lodash": "^4.17.11",
-    "serialport": "^7.0.2"
+    "lodash": "^4.17.21",
+    "serialport": "^9.2.5"
   }
 }
